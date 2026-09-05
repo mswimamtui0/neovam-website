@@ -15,7 +15,7 @@ const ServiceDetail = () => {
   const [service, setService] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // ===== ALL 18 SERVICES WITH FULL DESCRIPTIONS =====
+  // ===== ALL SERVICES WITH FULL DESCRIPTIONS =====
   const allServices = [
     // STRATEGY
     {
@@ -233,6 +233,37 @@ const ServiceDetail = () => {
       caseStudies: ['Digital Banking Platform', 'Payment Gateway Integration', 'Trading Platform Build']
     },
 
+    // ===== NEW: FUND MANAGEMENT SYSTEMS =====
+    {
+      id: 'fund-management-systems',
+      title: 'Fund Management Systems',
+      shortDescription: 'Comprehensive investment and fund management platforms for financial institutions.',
+      fullDescription: 'Our Fund Management Systems provide end-to-end solutions for managing investment funds, portfolios, and client assets. From client onboarding to portfolio tracking and reporting, our platforms streamline fund management operations. Built with enterprise-grade security and compliance for the financial services industry.',
+      icon: FiDollarSign,
+      category: 'Fintech',
+      features: [
+        'Client Onboarding & KYC',
+        'Portfolio Management',
+        'Fund Performance Tracking',
+        'Investment Analytics',
+        'Automated Reporting',
+        'Risk Management Tools',
+        'Multi-currency Support',
+        'Compliance Monitoring'
+      ],
+      technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS', 'WebSockets'],
+      benefits: [
+        'Streamline fund management operations',
+        'Real-time portfolio tracking',
+        'Enhanced client reporting',
+        'Regulatory compliance'
+      ],
+      caseStudies: [
+        'Victory Financial Services - Fund Management Platform',
+        'StockEx Pro - Investment Management Suite'
+      ]
+    },
+
     // CYBERSECURITY
     {
       id: 'cybersecurity',
@@ -252,7 +283,7 @@ const ServiceDetail = () => {
     const found = allServices.find(s => s.id === serviceId);
     setService(found);
     setLoading(false);
-  }, [serviceId]);
+  }, [serviceId, allServices]);
 
   if (loading) {
     return (

@@ -3,9 +3,8 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { 
   FiArrowRight, FiBook, FiGrid, FiDollarSign, FiMessageCircle, 
-  FiZap, FiTrendingUp, FiSearch, FiX, FiStar, FiUsers, 
-  FiClock, FiCheckCircle, FiExternalLink, FiBookOpen, FiPlay,
-  FiHeadphones, FiCalendar, FiAward
+  FiZap, FiTrendingUp, FiSearch, FiX, FiUsers, 
+  FiCheckCircle, FiBookOpen
 } from 'react-icons/fi';
 import Reveal from './Reveal';
 
@@ -13,9 +12,8 @@ const Products = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-  // Product data with Hadithi App
+  // Product data with Fund Management Systems
   const products = [
     {
       id: 'african-western-education',
@@ -167,7 +165,7 @@ const Products = () => {
       status: 'In Development',
       year: '2025'
     },
-    // ===== NEW: HADITHI APP =====
+    // ===== HADITHI APP =====
     {
       id: 'hadithi-app',
       name: 'Hadithi App',
@@ -201,6 +199,38 @@ const Products = () => {
       solutions: 'Built a comprehensive storytelling app with multiple content formats (text, audio, and video stories), flexible payment models (weekly, monthly, pay-per-episode), offline reading capabilities, and personalized recommendations.',
       client: 'Hadithi App Ltd',
       paymentOptions: ['Pay Per Episode', 'Weekly Subscription', 'Monthly Subscription', 'Yearly Subscription']
+    },
+    // ===== NEW: FUND MANAGEMENT SYSTEMS =====
+    {
+      id: 'fund-management-systems',
+      name: 'Fund Management Systems',
+      shortDescription: 'Comprehensive investment and fund management platform for financial institutions.',
+      fullDescription: 'A comprehensive fund management platform that enables financial institutions to manage client investments, track fund performance, and generate detailed reports. Built with enterprise-grade security and compliance for the financial services industry.',
+      category: 'Fintech',
+      icon: FiDollarSign,
+      features: [
+        'Client Onboarding & KYC',
+        'Portfolio Management',
+        'Fund Performance Tracking',
+        'Investment Analytics',
+        'Automated Reporting',
+        'Risk Management Tools',
+        'Multi-currency Support',
+        'Compliance Monitoring'
+      ],
+      technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS', 'WebSockets'],
+      results: [
+        'Real-time portfolio tracking',
+        'Automated reporting and analytics',
+        'Enhanced client experience',
+        'Regulatory compliance'
+      ],
+      liveUrl: 'https://neovam.com/fund-management',
+      status: 'Live',
+      year: '2024',
+      challenges: 'Financial institutions struggled with fragmented systems for managing client investments and tracking fund performance.',
+      solutions: 'Built a comprehensive fund management platform that centralizes all operations, automates reporting, and provides real-time portfolio visibility.',
+      client: 'Various Financial Institutions'
     }
   ];
 

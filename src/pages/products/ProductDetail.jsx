@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { 
   FiArrowRight, FiArrowLeft, FiCheck, FiX, FiExternalLink, 
-  FiCalendar, FiTag, FiUsers, FiCode, FiStar, FiClock,
+  FiCalendar, FiTag, FiUsers, FiCode, FiClock,
   FiBook, FiGrid, FiDollarSign, FiMessageCircle, FiZap, FiTrendingUp,
   FiCpu, FiCloud, FiShield, FiDatabase, FiLock, FiAward,
   FiBookOpen
@@ -217,7 +217,7 @@ const ProductDetail = () => {
       solutions: 'Developed an integrated platform combining brokerage and HR management with real-time data synchronization and automated workflows.',
       client: 'Various Financial Institutions'
     },
-    // ===== NEW: HADITHI APP =====
+    // ===== HADITHI APP =====
     {
       id: 'hadithi-app',
       name: 'Hadithi App',
@@ -252,6 +252,40 @@ const ProductDetail = () => {
       challenges: 'African storytelling lacked a modern, engaging platform with flexible access options. Users wanted to consume stories in different formats (text, audio, video) without being locked into rigid subscription models.',
       solutions: 'Built a comprehensive storytelling app with multiple content formats (text, audio, and video stories), flexible payment models (weekly, monthly, pay-per-episode), offline reading capabilities, and personalized recommendations.',
       client: 'Hadithi App Ltd'
+    },
+    // ===== NEW: FUND MANAGEMENT SYSTEMS =====
+    {
+      id: 'fund-management-systems',
+      name: 'Fund Management Systems',
+      shortDescription: 'Comprehensive investment and fund management platform for financial institutions.',
+      fullDescription: 'A comprehensive fund management platform that enables financial institutions to manage client investments, track fund performance, and generate detailed reports. Built with enterprise-grade security and compliance for the financial services industry.',
+      detailedDescription: 'Our Fund Management Systems provide end-to-end solutions for managing investment funds, portfolios, and client assets. The platform streamlines everything from client onboarding and KYC to portfolio tracking, investment analytics, and automated reporting. It is designed to help financial institutions optimize their fund management operations and deliver better outcomes for their clients.',
+      category: 'Fintech',
+      icon: FiDollarSign,
+      image: '/images/products/fund-management.jpg',
+      features: [
+        'Client Onboarding & KYC',
+        'Portfolio Management',
+        'Fund Performance Tracking',
+        'Investment Analytics',
+        'Automated Reporting',
+        'Risk Management Tools',
+        'Multi-currency Support',
+        'Compliance Monitoring'
+      ],
+      technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS', 'WebSockets'],
+      results: [
+        'Real-time portfolio tracking',
+        'Automated reporting and analytics',
+        'Enhanced client experience',
+        'Regulatory compliance'
+      ],
+      liveUrl: 'https://neovam.com/fund-management',
+      status: 'Live',
+      year: '2024',
+      challenges: 'Financial institutions struggled with fragmented systems for managing client investments and tracking fund performance. Manual reporting was time-consuming and error-prone.',
+      solutions: 'Built a comprehensive fund management platform that centralizes all operations, automates reporting, and provides real-time portfolio visibility for both advisors and clients.',
+      client: 'Various Financial Institutions'
     }
   ];
 
@@ -288,7 +322,7 @@ const ProductDetail = () => {
     }
     
     setLoading(false);
-  }, [id]);
+  }, [id, allProducts]);
 
   // Scroll to top on mount
   useEffect(() => {

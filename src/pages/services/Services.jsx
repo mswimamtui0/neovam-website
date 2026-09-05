@@ -14,7 +14,7 @@ const Services = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
 
-  // ===== ALL SERVICES (18 services) =====
+  // ===== ALL SERVICES (19 services) =====
   const servicesData = [
     // ----- STRATEGY (5 services) -----
     {
@@ -392,7 +392,7 @@ const Services = () => {
       ]
     },
 
-    // ----- FINTECH (1 service) -----
+    // ----- FINTECH (2 services) -----
     {
       id: 'fintech',
       title: 'Fintech Solutions',
@@ -413,6 +413,33 @@ const Services = () => {
         'Streamline financial operations',
         'Enhance customer experience with digital-first solutions',
         'Ensure regulatory compliance'
+      ]
+    },
+    // ===== NEW: FUND MANAGEMENT SYSTEMS =====
+    {
+      id: 'fund-management-systems',
+      title: 'Fund Management Systems',
+      shortDescription: 'Comprehensive investment and fund management platforms for financial institutions.',
+      fullDescription: 'Our Fund Management Systems provide end-to-end solutions for managing investment funds, portfolios, and client assets. From client onboarding to portfolio tracking and reporting, our platforms streamline fund management operations with enterprise-grade security and compliance.',
+      icon: FiDollarSign,
+      category: 'Fintech',
+      features: [
+        'Client Onboarding & KYC',
+        'Portfolio Management',
+        'Fund Performance Tracking',
+        'Investment Analytics',
+        'Automated Reporting',
+        'Risk Management Tools',
+        'Multi-currency Support',
+        'Compliance Monitoring'
+      ],
+      technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS', 'WebSockets', 'Redis'],
+      benefits: [
+        'Streamline fund management operations',
+        'Real-time portfolio tracking',
+        'Enhanced client reporting',
+        'Regulatory compliance',
+        'Improved investment decisions'
       ]
     },
 
