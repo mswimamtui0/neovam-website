@@ -48,7 +48,7 @@ const Header = () => {
     setOpenDropdown(null);
   }, [location]);
 
-  // ===== PRODUCTS DATA (with Hadithi App) =====
+  // ===== PRODUCTS DATA =====
   const products = [
     { name: 'African Western Education', path: '/products/african-western-education', description: 'Education agency management platform', icon: FiBook, tag: 'Education' },
     { name: 'Myshopii', path: '/products/myshopii', description: 'Multi-vendor eCommerce marketplace', icon: FiGrid, tag: 'E-Commerce' },
@@ -61,30 +61,23 @@ const Header = () => {
 
   // ===== SERVICES DATA (18 services) =====
   const services = [
-    // STRATEGY (5)
     { name: 'Product Strategy', path: '/services/product-strategy', description: 'Your Product Strategy', icon: FiTrendingUp, category: 'Strategy' },
     { name: 'Business Process Automation', path: '/services/business-process-automation', description: 'Automate & Accelerate', icon: FiZap, category: 'Strategy' },
     { name: 'Digital Transformation', path: '/services/digital-transformation', description: 'Innovate & Adapt', icon: FiGlobe, category: 'Strategy' },
     { name: 'Architecture & Scalability Planning', path: '/services/architecture-scalability', description: 'Robust Infrastructure', icon: FiLayers, category: 'Strategy' },
     { name: 'Technical Due Diligence', path: '/services/technical-due-diligence', description: 'Expert Analysis', icon: FiCheckCircle, category: 'Strategy' },
-    // DEVELOPMENT (6)
     { name: 'Custom Software Development', path: '/services/custom-software-development', description: 'Tailored Solutions', icon: FiCode, category: 'Development' },
     { name: 'Web Development', path: '/services/web-development', description: 'Dynamic Web Apps', icon: FiGlobe, category: 'Development' },
     { name: 'App Development', path: '/services/app-development', description: 'App Innovation', icon: FiSmartphone, category: 'Development' },
     { name: 'Enterprise Software Development', path: '/services/enterprise-software', description: 'Business Systems', icon: FiServer, category: 'Development' },
     { name: 'DevOps', path: '/services/devops', description: 'Infrastructure As Code', icon: FiGitBranch, category: 'Development' },
     { name: 'Software QA Testing', path: '/services/software-qa-testing', description: 'Reliable Software', icon: FiShield, category: 'Development' },
-    // STAFFING (3)
     { name: 'Dedicated Development Team', path: '/services/dedicated-development-team', description: 'Extended Team Power', icon: FiUsers, category: 'Staffing' },
     { name: 'Establishment of R&D Center', path: '/services/rnd-center-establishment', description: 'Empowering Innovation', icon: FiAward, category: 'Staffing' },
     { name: 'Staff Augmentation', path: '/services/staff-augmentation', description: 'Agile Staffing', icon: FiBriefcase, category: 'Staffing' },
-    // AI (1)
     { name: 'AI & Machine Learning', path: '/services/ai-ml', description: 'Intelligent automation & insights', icon: FiCpu, category: 'AI' },
-    // CLOUD (1)
     { name: 'Cloud Solutions', path: '/services/cloud', description: 'Scalable infrastructure & DevOps', icon: FiCloud, category: 'Cloud' },
-    // FINTECH (1)
     { name: 'Fintech Solutions', path: '/services/fintech', description: 'Digital banking & payments', icon: FiDollarSign, category: 'Fintech' },
-    // SECURITY (1)
     { name: 'Cybersecurity', path: '/services/cybersecurity', description: 'Protect your business', icon: FiShield, category: 'Security' }
   ];
 
@@ -135,7 +128,6 @@ const Header = () => {
     setOpenDropdown(openDropdown === name ? null : name);
   };
 
-  // Category colors for services
   const categoryColors = {
     'Strategy': 'text-purple-600 dark:text-purple-400',
     'Development': 'text-blue-600 dark:text-blue-400',
@@ -146,9 +138,9 @@ const Header = () => {
     'Security': 'text-red-600 dark:text-red-400'
   };
 
-  // ===== PRODUCTS DROPDOWN - LANDSCAPE GRID LAYOUT =====
+  // ===== PRODUCTS DROPDOWN - FIXED POSITIONING =====
   const ProductsDropdown = () => (
-    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[700px] max-w-[95vw] bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-dark-600 overflow-hidden">
+    <div className="absolute top-full left-0 mt-3 w-[700px] max-w-[95vw] bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-dark-600 overflow-hidden">
       <div className="p-4 border-b border-gray-100 dark:border-dark-700 bg-gray-50 dark:bg-dark-900/50">
         <h3 className="font-bold text-gray-900 dark:text-white">Products</h3>
         <p className="text-sm text-gray-600 dark:text-gray-400">Explore our products</p>
@@ -193,9 +185,9 @@ const Header = () => {
     </div>
   );
 
-  // ===== SERVICES DROPDOWN - LANDSCAPE GRID LAYOUT =====
+  // ===== SERVICES DROPDOWN - FIXED POSITIONING =====
   const ServicesDropdown = () => (
-    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[900px] max-w-[95vw] bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-dark-600 overflow-hidden">
+    <div className="absolute top-full left-0 mt-3 w-[900px] max-w-[95vw] bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-dark-600 overflow-hidden">
       <div className="p-4 border-b border-gray-100 dark:border-dark-700 bg-gray-50 dark:bg-dark-900/50">
         <h3 className="font-bold text-gray-900 dark:text-white">Services</h3>
         <p className="text-sm text-gray-600 dark:text-gray-400">Explore our services</p>
@@ -248,9 +240,9 @@ const Header = () => {
     </div>
   );
 
-  // ===== INDUSTRIES DROPDOWN - LANDSCAPE GRID LAYOUT =====
+  // ===== INDUSTRIES DROPDOWN - FIXED POSITIONING =====
   const IndustriesDropdown = () => (
-    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[600px] max-w-[95vw] bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-dark-600 overflow-hidden">
+    <div className="absolute top-full left-0 mt-3 w-[600px] max-w-[95vw] bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-dark-600 overflow-hidden">
       <div className="p-4 border-b border-gray-100 dark:border-dark-700 bg-gray-50 dark:bg-dark-900/50">
         <h3 className="font-bold text-gray-900 dark:text-white">Industries</h3>
         <p className="text-sm text-gray-600 dark:text-gray-400">Industries we serve</p>
@@ -291,7 +283,7 @@ const Header = () => {
   );
 
   const BlogDropdown = () => (
-    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-80 bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-dark-600 overflow-hidden">
+    <div className="absolute top-full left-0 mt-3 w-80 bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-dark-600 overflow-hidden">
       <div className="p-4 border-b border-gray-100 dark:border-dark-700 bg-gray-50 dark:bg-dark-900/50">
         <h3 className="font-bold text-gray-900 dark:text-white">Blog Categories</h3>
         <p className="text-sm text-gray-600 dark:text-gray-400">Latest insights from NeoVam</p>
@@ -388,7 +380,7 @@ const Header = () => {
                 <FiChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${openDropdown === 'company' ? 'rotate-180' : ''}`} />
               </button>
               {openDropdown === 'company' && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[280px] bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-dark-600 overflow-hidden">
+                <div className="absolute top-full left-0 mt-3 w-[280px] bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-dark-600 overflow-hidden">
                   <div className="p-4 border-b border-gray-100 dark:border-dark-700 bg-gray-50 dark:bg-dark-900/50">
                     <h3 className="font-bold text-gray-900 dark:text-white">Company</h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400">About NeoVam</p>
