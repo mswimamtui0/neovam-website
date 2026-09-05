@@ -1,0 +1,38 @@
+{
+  "blogs": [
+    {
+      "title": "NEOVAM TECHNOLOGY",
+      "slug": "n",
+      "excerpt": "neovam is a solution of all technological issues",
+      "content": "<p><img src=\"https://sl.bing.net/79eKA43vU\" alt=\"\">yoiuugfn mnvuyf guyziguhgio iyfdyt<img src=\"https://pics.craiyon.com/2023-09-12/9cd931058d13449380beb82e4441663b.webp\" alt=\"\" width=\"166\" height=\"166\">duhoihoihjguhfuydfh&nbsp; fr<strong> rf rf errrcvt5zt5vx45tv54</strong></p>",
+      "category": "Artificial Intelligence",
+      "tags": [
+        "AI",
+        "MACHINE LEARNING"
+      ],
+      "featuredImage": "",
+      "metaTitle": "Neovam",
+      "metaDescription": "k...",
+      "keywords": "ai",
+      "published": true,
+      "author": {
+        "name": "NeoVam Admin",
+        "role": "Admin"
+      },
+      "id": "1770276827255",
+      "createdAt": "2026-02-05T07:33:47.255Z",
+      "updatedAt": "2026-02-05T07:41:06.882Z",
+      "views": 9
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "neovam@2024",
+      "name": "NeoVam Admin",
+      "email": "admin@neovam.com",
+      "role": "admin"
+    }
+  ]
+}

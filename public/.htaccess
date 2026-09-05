@@ -1,0 +1,27 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Redirect sitemap.xml to Vercel backend
+  RewriteRule ^sitemap\.xml$ https://neovam-website-master.vercel.app/api/sitemap.xml [L,R=302]
+  
+  # Redirect rss.xml to Vercel backend
+  RewriteRule ^rss\.xml$ https://neovam-website-master.vercel.app/api/sitemap.xml [L,R=302]
+
+  # If the requested resource doesn't exist, serve index.html (Single Page App)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Optional: Prevent directory listing
+Options -Indexes
+
+# Serve gzipped assets when available (improves performance)
+<IfModule mod_negotiation.c>
+  AddEncoding gzip .gz
+  AddType "text/javascript" .js.gz
+  AddType "text/css" .css.gz
+</IfModule>
+
+# Fallback error document (optional)
+ErrorDocument 404 /index.html

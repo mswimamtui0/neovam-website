@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Allow: /blog/
+Allow: /sitemap.xml
+Allow: /api/sitemap.xml      # Add this line
+
+Disallow: /api/              # This now only blocks other API routes
+Disallow: /admin/
+Disallow: /login
+Disallow: /private/
+Disallow: /*?utm_
+Disallow: /*?session=
+Disallow: /*?ref=
+
+Sitemap: https://neovam.com/sitemap.xml
