@@ -48,7 +48,7 @@ const Header = () => {
     setOpenDropdown(null);
   }, [location]);
 
-  // ===== PRODUCTS DATA =====
+  // ===== PRODUCTS DATA (with Fund Management Systems) =====
   const products = [
     { name: 'African Western Education', path: '/products/african-western-education', description: 'Education agency management platform', icon: FiBook, tag: 'Education' },
     { name: 'Myshopii', path: '/products/myshopii', description: 'Multi-vendor eCommerce marketplace', icon: FiGrid, tag: 'E-Commerce' },
@@ -56,28 +56,38 @@ const Header = () => {
     { name: 'WhatsApp Chat Bot', path: '/products/whatsapp-chatbot', description: 'AI-powered customer engagement', icon: FiMessageCircle, tag: 'AI' },
     { name: 'Bulk SMS Platform', path: '/products/bulk-sms', description: 'Marketing & broadcast messaging', icon: FiZap, tag: 'Messaging' },
     { name: 'StockEx Pro', path: '/products/stockex-pro', description: 'Full brokerage & HR suite', icon: FiTrendingUp, tag: 'Fintech' },
-    { name: 'Hadithi App', path: '/products/hadithi-app', description: 'Storytelling platform with flexible payments', icon: FiBookOpen, tag: 'Entertainment' }
+    { name: 'Hadithi App', path: '/products/hadithi-app', description: 'Storytelling platform with flexible payments', icon: FiBookOpen, tag: 'Entertainment' },
+    // ===== NEW: FUND MANAGEMENT SYSTEMS =====
+    { name: 'Fund Management Systems', path: '/products/fund-management-systems', description: 'Investment & fund management platforms', icon: FiDollarSign, tag: 'Fintech' }
   ];
 
-  // ===== SERVICES DATA (18 services) =====
+  // ===== SERVICES DATA (19 services) =====
   const services = [
+    // STRATEGY (5)
     { name: 'Product Strategy', path: '/services/product-strategy', description: 'Your Product Strategy', icon: FiTrendingUp, category: 'Strategy' },
     { name: 'Business Process Automation', path: '/services/business-process-automation', description: 'Automate & Accelerate', icon: FiZap, category: 'Strategy' },
     { name: 'Digital Transformation', path: '/services/digital-transformation', description: 'Innovate & Adapt', icon: FiGlobe, category: 'Strategy' },
     { name: 'Architecture & Scalability Planning', path: '/services/architecture-scalability', description: 'Robust Infrastructure', icon: FiLayers, category: 'Strategy' },
     { name: 'Technical Due Diligence', path: '/services/technical-due-diligence', description: 'Expert Analysis', icon: FiCheckCircle, category: 'Strategy' },
+    // DEVELOPMENT (6)
     { name: 'Custom Software Development', path: '/services/custom-software-development', description: 'Tailored Solutions', icon: FiCode, category: 'Development' },
     { name: 'Web Development', path: '/services/web-development', description: 'Dynamic Web Apps', icon: FiGlobe, category: 'Development' },
     { name: 'App Development', path: '/services/app-development', description: 'App Innovation', icon: FiSmartphone, category: 'Development' },
     { name: 'Enterprise Software Development', path: '/services/enterprise-software', description: 'Business Systems', icon: FiServer, category: 'Development' },
     { name: 'DevOps', path: '/services/devops', description: 'Infrastructure As Code', icon: FiGitBranch, category: 'Development' },
     { name: 'Software QA Testing', path: '/services/software-qa-testing', description: 'Reliable Software', icon: FiShield, category: 'Development' },
+    // STAFFING (3)
     { name: 'Dedicated Development Team', path: '/services/dedicated-development-team', description: 'Extended Team Power', icon: FiUsers, category: 'Staffing' },
     { name: 'Establishment of R&D Center', path: '/services/rnd-center-establishment', description: 'Empowering Innovation', icon: FiAward, category: 'Staffing' },
     { name: 'Staff Augmentation', path: '/services/staff-augmentation', description: 'Agile Staffing', icon: FiBriefcase, category: 'Staffing' },
+    // AI (1)
     { name: 'AI & Machine Learning', path: '/services/ai-ml', description: 'Intelligent automation & insights', icon: FiCpu, category: 'AI' },
+    // CLOUD (1)
     { name: 'Cloud Solutions', path: '/services/cloud', description: 'Scalable infrastructure & DevOps', icon: FiCloud, category: 'Cloud' },
+    // FINTECH (2)
     { name: 'Fintech Solutions', path: '/services/fintech', description: 'Digital banking & payments', icon: FiDollarSign, category: 'Fintech' },
+    { name: 'Fund Management Systems', path: '/services/fund-management-systems', description: 'Investment & fund management platforms', icon: FiDollarSign, category: 'Fintech' },
+    // SECURITY (1)
     { name: 'Cybersecurity', path: '/services/cybersecurity', description: 'Protect your business', icon: FiShield, category: 'Security' }
   ];
 
@@ -138,7 +148,7 @@ const Header = () => {
     'Security': 'text-red-600 dark:text-red-400'
   };
 
-  // ===== PRODUCTS DROPDOWN - FIXED POSITIONING =====
+  // ===== PRODUCTS DROPDOWN =====
   const ProductsDropdown = () => (
     <div className="absolute top-full left-0 mt-3 w-[700px] max-w-[95vw] bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-dark-600 overflow-hidden">
       <div className="p-4 border-b border-gray-100 dark:border-dark-700 bg-gray-50 dark:bg-dark-900/50">
@@ -185,7 +195,7 @@ const Header = () => {
     </div>
   );
 
-  // ===== SERVICES DROPDOWN - FIXED POSITIONING =====
+  // ===== SERVICES DROPDOWN =====
   const ServicesDropdown = () => (
     <div className="absolute top-full left-0 mt-3 w-[900px] max-w-[95vw] bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-dark-600 overflow-hidden">
       <div className="p-4 border-b border-gray-100 dark:border-dark-700 bg-gray-50 dark:bg-dark-900/50">
@@ -240,7 +250,7 @@ const Header = () => {
     </div>
   );
 
-  // ===== INDUSTRIES DROPDOWN - FIXED POSITIONING =====
+  // ===== INDUSTRIES DROPDOWN =====
   const IndustriesDropdown = () => (
     <div className="absolute top-full left-0 mt-3 w-[600px] max-w-[95vw] bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-dark-600 overflow-hidden">
       <div className="p-4 border-b border-gray-100 dark:border-dark-700 bg-gray-50 dark:bg-dark-900/50">
@@ -391,7 +401,7 @@ const Header = () => {
                         <div className="mt-0.5 text-primary-600 dark:text-primary-400"><item.icon className="w-4 h-4" /></div>
                         <div><div className="font-medium text-gray-900 dark:text-white">{item.name}</div><div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{item.description}</div></div>
                       </Link>
-                    ))}
+                    ))} 
                   </div>
                 </div>
               )}
