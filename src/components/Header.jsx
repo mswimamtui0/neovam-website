@@ -5,9 +5,9 @@ import {
   FiSearch, FiArrowRight, FiLayers, 
   FiCpu, FiCloud, FiDollarSign, FiCode, FiShield,
   FiBriefcase, FiBook, FiHome, FiUsers, FiMail,
-  FiAward, FiTrendingUp, FiZap, FiGlobe, FiStar,
-  FiMonitor, FiSmartphone, FiDatabase, FiLock,
-  FiUserPlus, FiInfo, FiFileText, FiMessageCircle,
+  FiAward, FiTrendingUp, FiZap, FiGlobe,
+  FiSmartphone, FiLock,
+  FiInfo, FiMessageCircle,
   FiServer, FiGitBranch, FiCheckCircle, FiBookOpen
 } from 'react-icons/fi';
 import ThemeToggle from './ThemeToggle';
@@ -56,7 +56,6 @@ const Header = () => {
     { name: 'WhatsApp Chat Bot', path: '/products/whatsapp-chatbot', description: 'AI-powered customer engagement', icon: FiMessageCircle, tag: 'AI' },
     { name: 'Bulk SMS Platform', path: '/products/bulk-sms', description: 'Marketing & broadcast messaging', icon: FiZap, tag: 'Messaging' },
     { name: 'StockEx Pro', path: '/products/stockex-pro', description: 'Full brokerage & HR suite', icon: FiTrendingUp, tag: 'Fintech' },
-    // ===== NEW: HADITHI APP =====
     { name: 'Hadithi App', path: '/products/hadithi-app', description: 'Storytelling platform with flexible payments', icon: FiBookOpen, tag: 'Entertainment' }
   ];
 
@@ -336,130 +335,69 @@ const Header = () => {
   );
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 overflow-visible ${
-      isScrolled 
-        ? 'bg-white/90 dark:bg-dark-950/90 backdrop-blur-md shadow-lg border-b border-gray-200/20 dark:border-white/10' 
-        : 'bg-transparent'
-    }`}>
+    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 overflow-visible ${isScrolled ? 'bg-white/90 dark:bg-dark-950/90 backdrop-blur-md shadow-lg border-b border-gray-200/20 dark:border-white/10' : 'bg-transparent'}`}>
       <div className="w-full px-0 py-0 h-[88px] flex items-center">
         <div className="w-full flex items-center justify-between gap-4 px-4 sm:px-6 py-3 bg-white dark:bg-dark-800 border-y border-gray-100 dark:border-white/10 shadow-[0_14px_30px_rgba(60,49,100,0.10)] transition-all duration-300">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0 group" aria-label="NeoVam Home">
             <div className="flex items-center gap-3">
               <div className="relative w-[150px] p-1 flex items-center justify-center transition-all duration-300">
-                <img
-                  src={logo}
-                  alt="NeoVam Logo"
-                  className="h-full w-auto object-contain"
-                  onError={(e) => {
-                    e.currentTarget.src = fallbackLogo;
-                  }}
-                />
+                <img src={logo} alt="NeoVam Logo" className="h-full w-auto object-contain" onError={(e) => { e.currentTarget.src = fallbackLogo; }} />
               </div>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1 rounded-full px-2 py-1.5">
-            {/* PRODUCTS Dropdown - Landscape */}
+            {/* PRODUCTS Dropdown */}
             <div className="relative dropdown-container">
-              <button
-                onClick={() => toggleDropdown('products')}
-                className={`relative flex items-center gap-1.5 px-4 py-2 text-[14px] font-semibold rounded-full transition-all duration-300 ${
-                  isProductsActive() || openDropdown === 'products'
-                    ? 'text-white bg-gradient-to-br from-primary-600 to-primary-700 shadow-md shadow-primary-500/25'
-                    : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10'
-                }`}
-              >
+              <button onClick={() => toggleDropdown('products')} className={`relative flex items-center gap-1.5 px-4 py-2 text-[14px] font-semibold rounded-full transition-all duration-300 ${isProductsActive() || openDropdown === 'products' ? 'text-white bg-gradient-to-br from-primary-600 to-primary-700 shadow-md shadow-primary-500/25' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10'}`}>
                 <span>Products</span>
                 <FiChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${openDropdown === 'products' ? 'rotate-180' : ''}`} />
               </button>
-              
               {openDropdown === 'products' && <ProductsDropdown />}
             </div>
 
-            {/* SERVICES Dropdown - Landscape */}
+            {/* SERVICES Dropdown */}
             <div className="relative dropdown-container">
-              <button
-                onClick={() => toggleDropdown('services')}
-                className={`relative flex items-center gap-1.5 px-4 py-2 text-[14px] font-semibold rounded-full transition-all duration-300 ${
-                  isServicesActive() || openDropdown === 'services'
-                    ? 'text-white bg-gradient-to-br from-primary-600 to-primary-700 shadow-md shadow-primary-500/25'
-                    : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10'
-                }`}
-              >
+              <button onClick={() => toggleDropdown('services')} className={`relative flex items-center gap-1.5 px-4 py-2 text-[14px] font-semibold rounded-full transition-all duration-300 ${isServicesActive() || openDropdown === 'services' ? 'text-white bg-gradient-to-br from-primary-600 to-primary-700 shadow-md shadow-primary-500/25' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10'}`}>
                 <span>Services</span>
                 <FiChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${openDropdown === 'services' ? 'rotate-180' : ''}`} />
               </button>
-              
               {openDropdown === 'services' && <ServicesDropdown />}
             </div>
 
-            {/* INDUSTRIES Dropdown - Landscape */}
+            {/* INDUSTRIES Dropdown */}
             <div className="relative dropdown-container">
-              <button
-                onClick={() => toggleDropdown('industries')}
-                className={`relative flex items-center gap-1.5 px-4 py-2 text-[14px] font-semibold rounded-full transition-all duration-300 ${
-                  isIndustriesActive() || openDropdown === 'industries'
-                    ? 'text-white bg-gradient-to-br from-primary-600 to-primary-700 shadow-md shadow-primary-500/25'
-                    : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10'
-                }`}
-              >
+              <button onClick={() => toggleDropdown('industries')} className={`relative flex items-center gap-1.5 px-4 py-2 text-[14px] font-semibold rounded-full transition-all duration-300 ${isIndustriesActive() || openDropdown === 'industries' ? 'text-white bg-gradient-to-br from-primary-600 to-primary-700 shadow-md shadow-primary-500/25' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10'}`}>
                 <span>Industries</span>
                 <FiChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${openDropdown === 'industries' ? 'rotate-180' : ''}`} />
               </button>
-              
               {openDropdown === 'industries' && <IndustriesDropdown />}
             </div>
 
-            {/* SUCCESS STORIES - Direct Link */}
-            <Link
-              to="/success-stories"
-              className={`relative px-4 py-2 text-[14px] font-semibold rounded-full transition-all duration-300 ${
-                isSuccessStoriesActive()
-                  ? 'text-white bg-gradient-to-br from-primary-600 to-primary-700 shadow-md shadow-primary-500/25'
-                  : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10'
-              }`}
-            >
+            {/* SUCCESS STORIES */}
+            <Link to="/success-stories" className={`relative px-4 py-2 text-[14px] font-semibold rounded-full transition-all duration-300 ${isSuccessStoriesActive() ? 'text-white bg-gradient-to-br from-primary-600 to-primary-700 shadow-md shadow-primary-500/25' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10'}`}>
               Success Stories
             </Link>
 
             {/* COMPANY Dropdown */}
             <div className="relative dropdown-container">
-              <button
-                onClick={() => toggleDropdown('company')}
-                className={`relative flex items-center gap-1.5 px-4 py-2 text-[14px] font-semibold rounded-full transition-all duration-300 ${
-                  isCompanyActive() || openDropdown === 'company'
-                    ? 'text-white bg-gradient-to-br from-primary-600 to-primary-700 shadow-md shadow-primary-500/25'
-                    : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10'
-                }`}
-              >
+              <button onClick={() => toggleDropdown('company')} className={`relative flex items-center gap-1.5 px-4 py-2 text-[14px] font-semibold rounded-full transition-all duration-300 ${isCompanyActive() || openDropdown === 'company' ? 'text-white bg-gradient-to-br from-primary-600 to-primary-700 shadow-md shadow-primary-500/25' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10'}`}>
                 <span>Company</span>
                 <FiChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${openDropdown === 'company' ? 'rotate-180' : ''}`} />
               </button>
-              
               {openDropdown === 'company' && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[280px] bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-dark-600 overflow-hidden">
                   <div className="p-4 border-b border-gray-100 dark:border-dark-700 bg-gray-50 dark:bg-dark-900/50">
                     <h3 className="font-bold text-gray-900 dark:text-white">Company</h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400">About NeoVam</p>
                   </div>
-                  
                   <div className="p-4">
                     {company.map((item) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        onClick={() => setOpenDropdown(null)}
-                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-dark-700 transition-colors mb-2 last:mb-0"
-                      >
-                        <div className="mt-0.5 text-primary-600 dark:text-primary-400">
-                          <item.icon className="w-4 h-4" />
-                        </div>
-                        <div>
-                          <div className="font-medium text-gray-900 dark:text-white">{item.name}</div>
-                          <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{item.description}</div>
-                        </div>
+                      <Link key={item.path} to={item.path} onClick={() => setOpenDropdown(null)} className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-dark-700 transition-colors mb-2 last:mb-0">
+                        <div className="mt-0.5 text-primary-600 dark:text-primary-400"><item.icon className="w-4 h-4" /></div>
+                        <div><div className="font-medium text-gray-900 dark:text-white">{item.name}</div><div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{item.description}</div></div>
                       </Link>
                     ))}
                   </div>
@@ -469,30 +407,15 @@ const Header = () => {
 
             {/* BLOG Dropdown */}
             <div className="relative dropdown-container">
-              <button
-                onClick={() => toggleDropdown('blog')}
-                className={`relative flex items-center gap-1.5 px-4 py-2 text-[14px] font-semibold rounded-full transition-all duration-300 ${
-                  isBlogActive() || openDropdown === 'blog'
-                    ? 'text-white bg-gradient-to-br from-primary-600 to-primary-700 shadow-md shadow-primary-500/25'
-                    : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10'
-                }`}
-              >
+              <button onClick={() => toggleDropdown('blog')} className={`relative flex items-center gap-1.5 px-4 py-2 text-[14px] font-semibold rounded-full transition-all duration-300 ${isBlogActive() || openDropdown === 'blog' ? 'text-white bg-gradient-to-br from-primary-600 to-primary-700 shadow-md shadow-primary-500/25' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10'}`}>
                 <span>Blog</span>
                 <FiChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${openDropdown === 'blog' ? 'rotate-180' : ''}`} />
               </button>
-              
               {openDropdown === 'blog' && <BlogDropdown />}
             </div>
 
-            {/* CONTACT - Direct Link (Styled as CTA) */}
-            <Link
-              to="/contact"
-              className={`relative px-6 py-2 text-[14px] font-semibold rounded-full transition-all duration-300 ${
-                isActive('/contact')
-                  ? 'text-white bg-gradient-to-br from-primary-600 to-primary-700 shadow-md shadow-primary-500/25'
-                  : 'text-white bg-gradient-to-br from-primary-600 to-primary-700 hover:shadow-glow hover:scale-105'
-              }`}
-            >
+            {/* CONTACT */}
+            <Link to="/contact" className={`relative px-6 py-2 text-[14px] font-semibold rounded-full transition-all duration-300 ${isActive('/contact') ? 'text-white bg-gradient-to-br from-primary-600 to-primary-700 shadow-md shadow-primary-500/25' : 'text-white bg-gradient-to-br from-primary-600 to-primary-700 hover:shadow-glow hover:scale-105'}`}>
               Contact
             </Link>
           </nav>
@@ -503,10 +426,7 @@ const Header = () => {
               <FiSearch className="w-[18px] h-[18px]" />
             </button>
             <ThemeToggle />
-            <Link
-              to="/contact"
-              className="flex items-center gap-2 px-5 py-3 bg-gradient-to-br from-primary-600 to-primary-700 text-white text-sm font-semibold rounded-full hover:shadow-glow hover:scale-105 transition-all duration-300"
-            >
+            <Link to="/contact" className="flex items-center gap-2 px-5 py-3 bg-gradient-to-br from-primary-600 to-primary-700 text-white text-sm font-semibold rounded-full hover:shadow-glow hover:scale-105 transition-all duration-300">
               Get Started
               <FiArrowRight className="w-4 h-4" />
             </Link>
@@ -515,11 +435,7 @@ const Header = () => {
           {/* Mobile Controls */}
           <div className="lg:hidden flex items-center gap-2">
             <ThemeToggle />
-            <button
-              className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors touch-manipulation"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
+            <button className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors touch-manipulation" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle menu">
               {isMobileMenuOpen ? <FiX size={26} /> : <FiMenu size={26} />}
             </button>
           </div>
@@ -531,22 +447,14 @@ const Header = () => {
             <nav className="flex flex-col space-y-1 px-2 sm:px-3">
               {/* PRODUCTS Mobile */}
               <div className="mb-1">
-                <button
-                  onClick={() => toggleDropdown('mobile-products')}
-                  className="flex items-center justify-between w-full px-4 py-3 text-[15px] font-semibold rounded-2xl transition-all duration-300 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5"
-                >
+                <button onClick={() => toggleDropdown('mobile-products')} className="flex items-center justify-between w-full px-4 py-3 text-[15px] font-semibold rounded-2xl transition-all duration-300 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5">
                   <span>Products</span>
                   <FiChevronDown className={`w-4 h-4 transition-transform ${openDropdown === 'mobile-products' ? 'rotate-180' : ''}`} />
                 </button>
                 {openDropdown === 'mobile-products' && (
                   <div className="ml-4 space-y-1">
                     {products.map((item) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl"
-                      >
+                      <Link key={item.path} to={item.path} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl">
                         <item.icon className="w-4 h-4 text-primary-600" />
                         <span>{item.name}</span>
                       </Link>
@@ -557,22 +465,14 @@ const Header = () => {
 
               {/* SERVICES Mobile */}
               <div className="mb-1">
-                <button
-                  onClick={() => toggleDropdown('mobile-services')}
-                  className="flex items-center justify-between w-full px-4 py-3 text-[15px] font-semibold rounded-2xl transition-all duration-300 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5"
-                >
+                <button onClick={() => toggleDropdown('mobile-services')} className="flex items-center justify-between w-full px-4 py-3 text-[15px] font-semibold rounded-2xl transition-all duration-300 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5">
                   <span>Services</span>
                   <FiChevronDown className={`w-4 h-4 transition-transform ${openDropdown === 'mobile-services' ? 'rotate-180' : ''}`} />
                 </button>
                 {openDropdown === 'mobile-services' && (
                   <div className="ml-4 space-y-1">
                     {services.map((item) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl"
-                      >
+                      <Link key={item.path} to={item.path} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl">
                         <item.icon className="w-4 h-4 text-primary-600" />
                         <span>{item.name}</span>
                       </Link>
@@ -583,22 +483,14 @@ const Header = () => {
 
               {/* INDUSTRIES Mobile */}
               <div className="mb-1">
-                <button
-                  onClick={() => toggleDropdown('mobile-industries')}
-                  className="flex items-center justify-between w-full px-4 py-3 text-[15px] font-semibold rounded-2xl transition-all duration-300 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5"
-                >
+                <button onClick={() => toggleDropdown('mobile-industries')} className="flex items-center justify-between w-full px-4 py-3 text-[15px] font-semibold rounded-2xl transition-all duration-300 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5">
                   <span>Industries</span>
                   <FiChevronDown className={`w-4 h-4 transition-transform ${openDropdown === 'mobile-industries' ? 'rotate-180' : ''}`} />
                 </button>
                 {openDropdown === 'mobile-industries' && (
                   <div className="ml-4 space-y-1">
                     {industries.map((item) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl"
-                      >
+                      <Link key={item.path} to={item.path} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl">
                         <item.icon className="w-4 h-4 text-primary-600" />
                         <span>{item.name}</span>
                       </Link>
@@ -608,32 +500,20 @@ const Header = () => {
               </div>
 
               {/* SUCCESS STORIES Mobile */}
-              <Link
-                to="/success-stories"
-                className="block px-4 py-3 text-[15px] font-semibold rounded-2xl transition-all duration-300 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
+              <Link to="/success-stories" className="block px-4 py-3 text-[15px] font-semibold rounded-2xl transition-all duration-300 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5" onClick={() => setIsMobileMenuOpen(false)}>
                 Success Stories
               </Link>
 
               {/* COMPANY Mobile */}
               <div className="mb-1">
-                <button
-                  onClick={() => toggleDropdown('mobile-company')}
-                  className="flex items-center justify-between w-full px-4 py-3 text-[15px] font-semibold rounded-2xl transition-all duration-300 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5"
-                >
+                <button onClick={() => toggleDropdown('mobile-company')} className="flex items-center justify-between w-full px-4 py-3 text-[15px] font-semibold rounded-2xl transition-all duration-300 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5">
                   <span>Company</span>
                   <FiChevronDown className={`w-4 h-4 transition-transform ${openDropdown === 'mobile-company' ? 'rotate-180' : ''}`} />
                 </button>
                 {openDropdown === 'mobile-company' && (
                   <div className="ml-4 space-y-1">
                     {company.map((item) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl"
-                      >
+                      <Link key={item.path} to={item.path} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl">
                         <item.icon className="w-4 h-4 text-primary-600" />
                         <span>{item.name}</span>
                       </Link>
@@ -644,22 +524,14 @@ const Header = () => {
 
               {/* BLOG Mobile */}
               <div className="mb-1">
-                <button
-                  onClick={() => toggleDropdown('mobile-blog')}
-                  className="flex items-center justify-between w-full px-4 py-3 text-[15px] font-semibold rounded-2xl transition-all duration-300 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5"
-                >
+                <button onClick={() => toggleDropdown('mobile-blog')} className="flex items-center justify-between w-full px-4 py-3 text-[15px] font-semibold rounded-2xl transition-all duration-300 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5">
                   <span>Blog</span>
                   <FiChevronDown className={`w-4 h-4 transition-transform ${openDropdown === 'mobile-blog' ? 'rotate-180' : ''}`} />
                 </button>
                 {openDropdown === 'mobile-blog' && (
                   <div className="ml-4 space-y-1">
                     {blogCategories.map((item) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl"
-                      >
+                      <Link key={item.path} to={item.path} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl">
                         <item.icon className="w-4 h-4 text-primary-600" />
                         <span>{item.name}</span>
                       </Link>
@@ -668,12 +540,7 @@ const Header = () => {
                       <h4 className="font-bold text-gray-900 dark:text-white mb-2 text-xs">Popular Tags</h4>
                       <div className="flex flex-wrap gap-1">
                         {popularTags.map((tag) => (
-                          <Link
-                            key={tag.path}
-                            to={tag.path}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="px-2.5 py-1 bg-gray-100 dark:bg-dark-700 text-gray-700 dark:text-gray-300 hover:bg-primary-100 hover:text-primary-700 rounded-full text-xs font-medium transition-colors"
-                          >
+                          <Link key={tag.path} to={tag.path} onClick={() => setIsMobileMenuOpen(false)} className="px-2.5 py-1 bg-gray-100 dark:bg-dark-700 text-gray-700 dark:text-gray-300 hover:bg-primary-100 hover:text-primary-700 rounded-full text-xs font-medium transition-colors">
                             {tag.name}
                           </Link>
                         ))}
@@ -684,11 +551,7 @@ const Header = () => {
               </div>
 
               {/* CONTACT Mobile */}
-              <Link
-                to="/contact"
-                className="mt-2 px-4 py-4 bg-gradient-to-br from-primary-600 to-primary-700 text-white text-base font-semibold rounded-2xl text-center touch-manipulation"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
+              <Link to="/contact" className="mt-2 px-4 py-4 bg-gradient-to-br from-primary-600 to-primary-700 text-white text-base font-semibold rounded-2xl text-center touch-manipulation" onClick={() => setIsMobileMenuOpen(false)}>
                 Contact
               </Link>
             </nav>
